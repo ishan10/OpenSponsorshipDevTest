@@ -47,4 +47,29 @@ router.get('/', function (req, res, next) {
 });
 
 
+router.get('/getSportList', function (req, res, next) {
+    sportCollection.find({}, {_id: false}).toArray(function (err, data) {
+        if (!err) {
+            //console.log(data);
+            res.send(data);
+        }
+    });
+});
+
+router.post('/createProfile', function (req, res, next) {
+    // console.log(req.body.data.profile);
+
+    var profile = req.body.data.profile;
+    athleteProfile.insert(profile, function (err, result) {
+        //  console.log(result);
+        if (!err) {
+            res.send(200);
+        } else {
+            var statusMessage = {code: 200, message: "Profile Not Created"};
+            res.send(statusMessage);
+        }
+    });
+
+});
+
 module.exports = router;
