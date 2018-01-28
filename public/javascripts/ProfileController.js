@@ -20,6 +20,9 @@ athleteApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvi
     }).state('profileForm.review', {
         url: '/review',
         templateUrl: '../view/review.ejs'
+    }).state('profileForm.success', {
+        url: '/success',
+        templateUrl: '../view/success.ejs'
     })
 
     $urlRouterProvider.otherwise('/profileForm');
@@ -30,12 +33,8 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
     $scope.profile = {};
 
     $http.get('/getSportList').then(function (result) {
-        console.log(result.data[0].sports);
         $scope.sportsList = result.data[0].sports;
     });
-
-
-
 
     $scope.submitProfile = function () {
 
@@ -55,7 +54,8 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
                     profile: $scope.profile
                 }
             }).then(function (data) {
-                console.log(data);
+                $scope.profile = {};
+                $location.path('/success');
             }, function (error) {
                 console.log("error");
             })
