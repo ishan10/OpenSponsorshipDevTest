@@ -79,7 +79,7 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
 }]);
 
 athleteApp.controller("ListController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
-    $http.get('.profile/getProfileList').then(function (result) {
+    $http.get('/profile/getProfileList').then(function (result) {
         $scope.profileList = result.data;
     }, function (error) {
         console.log("error while retrieving profileList");
