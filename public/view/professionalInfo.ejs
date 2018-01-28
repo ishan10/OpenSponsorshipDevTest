@@ -21,5 +21,9 @@
         <input type="text" class="form-control" id="interests" placeholder="Interests" ng-model="profile.interests">
     </div>
 
-    <button type="button" class="btn btn-primary float-right" ng-click="submitProfile()">Submit</button>
+    <div class="float-right">
+        <a ui-sref="profileForm.social">
+            <button type="button" class="btn btn-primary">Next Step</button>
+        </a>
+    </div>
 </div>
