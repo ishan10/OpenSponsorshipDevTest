@@ -23,6 +23,9 @@ athleteApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvi
     }).state('profileForm.success', {
         url: '/success',
         templateUrl: '../view/success.ejs'
+    }).state('profileForm.error', {
+        url: '/error',
+        templateUrl: '../view/error.ejs'
     }).state('profileForm.profileList', {
         url: '/list',
         templateUrl: '../view/profileList.ejs',
@@ -36,8 +39,10 @@ athleteApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvi
 athleteApp.controller("AthleteController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
     $scope.profile = {};
 
-    $http.get('/getSportList').then(function (result) {
+    $http.get('/profile/getSportList').then(function (result) {
         $scope.sportsList = result.data[0].sports;
+    }, function (error) {
+        console.log("error");
     });
 
     $scope.submitProfile = function () {
@@ -56,7 +61,7 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
 
         }
         else {
-            $http.post('/createProfile', {
+            $http.post('/profile/createProfile', {
                 data: {
                     profile: $scope.profile
                 }
@@ -65,13 +70,17 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
                 $location.path('/success');
             }, function (error) {
                 console.log("error");
+                $scope.profile = {};
+                location.path('/profileForm.error');
             })
         }
     }
-}])
+}]);
 
 athleteApp.controller("ListController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
-    $http.get('/getProfileList').then(function (result) {
+    $http.get('.profile/getProfileList').then(function (result) {
         $scope.profileList = result.data;
+    }, function (error) {
+        console.log("error");
     });
 }]);

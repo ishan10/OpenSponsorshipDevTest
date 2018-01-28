@@ -51,6 +51,9 @@ router.get('/getSportList', function (req, res, next) {
     sportCollection.find({}, {_id: false}).toArray(function (err, data) {
         if (!err) {
             res.send(data);
+        }else {
+            var statusMessage = {code: 200, message: "Error retrieving SportsList"};
+            res.send(statusMessage);
         }
     });
 });
@@ -74,6 +77,9 @@ router.get('/getProfileList', function (req, res, next) {
     athleteProfile.find({}).toArray(function (err, data) {
         if (!err) {
             res.send(data);
+        }else {
+            var statusMessage = {code: 200, message: "Error retrieving ProfileList"};
+            res.send(statusMessage);
         }
     });
 });
