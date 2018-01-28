@@ -17,6 +17,9 @@ athleteApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvi
     }).state('profileForm.miscellaneous', {
         url: '/miscellaneous',
         templateUrl: '../view/miscellaneousInfo.ejs'
+    }).state('profileForm.review', {
+        url: '/review',
+        templateUrl: '../view/review.ejs'
     })
 
     $urlRouterProvider.otherwise('/profileForm');
@@ -33,7 +36,7 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
 
 
 
-    
+
     $scope.submitProfile = function () {
 
         var dateObj = new Date($scope.profile.dob);
