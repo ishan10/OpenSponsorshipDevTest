@@ -1,0 +1,15 @@
+<div class="center">
+    <div class="textCenter"><h5>List of Athlete Profiles</h5></div>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Athlete Name</th>
+            <th>Athlete Nationality</th>
+            <th>Birth Date</th>
+        </tr>
+        <tr ng-repeat="profile in profileList">
+            <td> {{profile.name}}</td>
+            <td> {{profile.nationality}}</td>
+            <td> {{profile.dob}}</td>
+        </tr>
+    </table>
+</div>

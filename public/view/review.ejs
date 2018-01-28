@@ -14,7 +14,7 @@
 
         </div>
         <div class="jumbotron">
-            <h5 class="float-right"><a ui-sref="profileForm.about"> Edit </a></h5>
+            <h5 class="float-right"><a ui-sref="profileForm.professional"> Edit </a></h5>
             <h3 class="display-6">Professional Information</h3>
             <br>
             <p class="lead">Team : {{profile.team}}</p>
@@ -37,6 +37,15 @@
             <p class="lead">Snap Chat : {{profile.snap}}</p>
             <p class="lead">Do you have Pets : {{profile.pets ? 'Yes' : 'No'}}</p>
             <p class="lead">Drink Alcohol: {{profile.alcohol ? 'Yes' : 'No'}}</p>
+
+        </div>
+        <div class="jumbotron">
+            <h5 class="float-right"><a ui-sref="profileForm.miscellaneous"> Edit </a></h5>
+            <h3 class="display-6">Miscellaneous Information</h3>
+            <br>
+            <p class="lead">Do you have Pets : {{profile.pets ? 'Yes' : 'No'}}</p>
+            <p class="lead">Drink Alcohol: {{profile.alcohol ? 'Yes' : 'No'}}</p>
+            <p class="lead">Charities Interested: {{profile.charity}}</p>
 
         </div>
     </div>

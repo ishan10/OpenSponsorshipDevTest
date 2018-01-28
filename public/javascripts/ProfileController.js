@@ -42,15 +42,18 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
 
     $scope.submitProfile = function () {
 
-        var dateObj = new Date($scope.profile.dob);
-        var month = dateObj.getUTCMonth() + 1;
-        var day = dateObj.getUTCDate();
-        var year = dateObj.getUTCFullYear();
 
-        $scope.profile.dob = year + "/" + month + "/" + day;
+        if(typeof $scope.profile.dob != 'undefined') {
+            var dateObj = new Date($scope.profile.dob);
+            var month = dateObj.getUTCMonth() + 1;
+            var day = dateObj.getUTCDate();
+            var year = dateObj.getUTCFullYear();
 
+            $scope.profile.dob = year + "/" + month + "/" + day;
+        }
         if (typeof $scope.profile.name == 'undefined' || typeof $scope.profile.dob == 'undefined') {
             alert("Please Enter the mandatory fields and resubmit");
+
         }
         else {
             $http.post('/createProfile', {
@@ -68,5 +71,7 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
 }])
 
 athleteApp.controller("ListController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
-    console.log("ListController");
+    $http.get('/getProfileList').then(function (result) {
+        $scope.profileList = result.data;
+    });
 }]);
