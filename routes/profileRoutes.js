@@ -56,11 +56,10 @@ router.get('/getSportList', function (req, res, next) {
 });
 
 router.post('/createProfile', function (req, res, next) {
-    // console.log(req.body.data.profile);
 
     var profile = req.body.data.profile;
     athleteProfile.insert(profile, function (err, result) {
-        //  console.log(result);
+
         if (!err) {
             res.send(200);
         } else {
@@ -70,5 +69,14 @@ router.post('/createProfile', function (req, res, next) {
     });
 
 });
+
+router.get('/getProfileList', function (req, res, next) {
+    athleteProfile.find({}).toArray(function (err, data) {
+        if (!err) {
+            res.send(data);
+        }
+    });
+});
+
 
 module.exports = router;

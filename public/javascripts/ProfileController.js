@@ -23,6 +23,10 @@ athleteApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvi
     }).state('profileForm.success', {
         url: '/success',
         templateUrl: '../view/success.ejs'
+    }).state('profileForm.profileList', {
+        url: '/list',
+        templateUrl: '../view/profileList.ejs',
+        controller: 'ListController'
     })
 
     $urlRouterProvider.otherwise('/profileForm');
@@ -61,5 +65,8 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
             })
         }
     }
+}])
 
+athleteApp.controller("ListController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
+    console.log("ListController");
 }]);
