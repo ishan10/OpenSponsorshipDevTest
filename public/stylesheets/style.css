@@ -5,3 +5,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+.center {
+  margin: 0 auto;
+  width: 30%;
+  padding-top: 2em;
+}
+
+.textCenter {
+  text-align: center;
+}

@@ -1,2 +1,42 @@
+<div class="center">
+    <div class="textCenter"><h5>Basic Information</h5></div>
+    <form>
+        <div class="form-group">
+            <label for="name">Name * </label>
+            <input type="text" class="form-control" name="name" placeholder="Enter name" ng-model="profile.name" required="required">
+        </div>
+        <div class="form-group">
+            <label for="dob">Date Of Birth *</label>
+            <input type="date" class="form-control" max="2018-27-01" name="dob" placeholder="Enter Date of birth" ng-model="profile.dob">
+        </div>
+        <div class="form-group">
+            <!-- <input type="radio" name="gender" value="male" ng-model="profile.gender"> Male<br>
+             <input type="radio" name="gender" value="female" ng-model="profile.gender"> Female<br>
+     -->
+            <label for="gender">Gender :</label>
+            <select class="form-control" id="gender" ng-model="profile.gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="gender">Marital Status :</label>
+            <select class="form-control" id="gender" ng-model="profile.maritalStatus">
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" placeholder="" ng-model="profile.location">
+        </div>
+        <div class="form-group">
+            <label for="nationality">Nationality</label>
+            <input type="text" class="form-control" id="nationality" placeholder="Nationality"
+                   ng-model="profile.nationality">
+        </div>
 
+        <button type="button" class="btn btn-primary float-right" ng-click="submitProfile()">Submit</button>
+        </form>
+</div>
 
