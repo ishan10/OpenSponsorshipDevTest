@@ -50,7 +50,6 @@ router.get('/', function (req, res, next) {
 router.get('/getSportList', function (req, res, next) {
     sportCollection.find({}, {_id: false}).toArray(function (err, data) {
         if (!err) {
-            //console.log(data);
             res.send(data);
         }
     });

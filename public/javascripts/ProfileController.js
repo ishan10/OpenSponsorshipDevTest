@@ -11,6 +11,9 @@ athleteApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvi
     }).state('profileForm.professional', {
         url: '/professional',
         templateUrl: '../view/professionalInfo.ejs'
+    }).state('profileForm.social', {
+        url: '/social',
+        templateUrl: '../view/socialInfo.ejs'
     })
     $urlRouterProvider.otherwise('/profileForm');
 }]);
@@ -19,7 +22,11 @@ athleteApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvi
 athleteApp.controller("AthleteController", ["$scope", "$http", "$location", function ($scope, $http, $location) {
     $scope.profile = {};
 
-    console.log($scope.profile);
+    $http.get('/getSportList').then(function (result) {
+        console.log(result.data[0].sports);
+        $scope.sportsList = result.data[0].sports;
+    });
+
 
     $scope.submitProfile = function () {
 
@@ -29,10 +36,6 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
         var year = dateObj.getUTCFullYear();
 
         $scope.profile.dob = year + "/" + month + "/" + day;
-
-        //$scope.profile.dob = new Date(newDate);
-
-        console.log($scope.profile.dob);
 
         if (typeof $scope.profile.name == 'undefined' || typeof $scope.profile.dob == 'undefined') {
             alert("Please Enter the mandatory fields and resubmit");
@@ -49,5 +52,5 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
             })
         }
     }
-    
+
 }]);
