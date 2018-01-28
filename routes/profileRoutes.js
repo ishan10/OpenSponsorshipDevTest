@@ -66,7 +66,7 @@ router.post('/createProfile', function (req, res, next) {
         if (!err) {
             res.send(200);
         } else {
-            var statusMessage = {code: 200, message: "Profile Not Created"};
+            var statusMessage = {code: 500, message: "Profile Not Created"};
             res.send(statusMessage);
         }
     });
@@ -78,7 +78,7 @@ router.get('/getProfileList', function (req, res, next) {
         if (!err) {
             res.send(data);
         }else {
-            var statusMessage = {code: 200, message: "Error retrieving ProfileList"};
+            var statusMessage = {code: 500, message: "Error retrieving ProfileList"};
             res.send(statusMessage);
         }
     });

@@ -42,13 +42,14 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
     $http.get('/profile/getSportList').then(function (result) {
         $scope.sportsList = result.data[0].sports;
     }, function (error) {
-        console.log("error");
+        console.log("error while retrieving SportsList");
+        location.path('/profileForm.error');
     });
 
     $scope.submitProfile = function () {
 
 
-        if(typeof $scope.profile.dob != 'undefined') {
+        if (typeof $scope.profile.dob != 'undefined') {
             var dateObj = new Date($scope.profile.dob);
             var month = dateObj.getUTCMonth() + 1;
             var day = dateObj.getUTCDate();
@@ -69,7 +70,7 @@ athleteApp.controller("AthleteController", ["$scope", "$http", "$location", func
                 $scope.profile = {};
                 $location.path('/success');
             }, function (error) {
-                console.log("error");
+                console.log("error while creating profile");
                 $scope.profile = {};
                 location.path('/profileForm.error');
             })
@@ -81,6 +82,7 @@ athleteApp.controller("ListController", ["$scope", "$http", "$location", functio
     $http.get('.profile/getProfileList').then(function (result) {
         $scope.profileList = result.data;
     }, function (error) {
-        console.log("error");
+        console.log("error while retrieving profileList");
+        location.path('/profileForm.error');
     });
 }]);
