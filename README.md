@@ -1,13 +1,13 @@
-#Athlete Profile Input Form
+# Athlete Profile Input Form
 
-This is a full-stack, single-page application in Node and Angular 1 with a multi-step or multi-screen athlete profile form  that gathers standard demographic, sports and event data.
-
+This is a full-stack, single-page application in Node and Angular 1 with a multi-step or multi-screen athlete profile form that gathers standard demographic, sports and event data of Athletes.
 
 
 #Features:
 1. Create Athlete profile in multi-steps.
 2. List all created profiles.
 3. Update athlete profiles.
+
 
 #Technology Stack:
 1. Node/Express
@@ -18,3 +18,4 @@ This is a full-stack, single-page application in Node and Angular 1 with a multi
 6. Bootstrap 4.
 7. MLab.
 
+See Demo at : https://ishan-athlete-profile10.herokuapp.com
